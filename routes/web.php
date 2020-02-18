@@ -13,7 +13,14 @@
 
 Route::get('/', function () {
   //  return view('welcome');
-  Larademo::hello();
+  $to_name='Basanta Sapkota';
+  $to_email='sapkota.basanta46@gmail.com';
+  $data=array('name'=>'Babin','body'=>'Hell0!!');
+  Mail::send('lara',$data,function($message) use($to_name,$to_email)
+  {
+      $message->to($to_email)
+      ->subject('laramail'); 
+  });
 });
 
 Route::get('Pdf','PDFgenerator@PDFgenerator');
